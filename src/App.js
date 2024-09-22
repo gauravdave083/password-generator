@@ -2,7 +2,7 @@ import { useState, useCallback } from "react";
 
 function App() {
   const [length, setLength] = useState(8)
-  const [numberAllowed, setNumberAllowwed] = useState(false)
+  const [numberAllowed, setNumberAllowed] = useState(false)
   const [charAllowed, setCharAllowed] = useState(false)
   const [password, setPassword] = ("")
 
@@ -33,6 +33,24 @@ function App() {
               <button className="outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0">Copy</button>
           </div>
 
+          <div className="flex text-sm gap-x-2">
+              <div className='flex items-center gap-x-1'>
+                <input type="range" min={6} max={100} value={length} className="cursor-pointer" onChange={(e) => {setLength(e.target.value)}}/>
+                <label>Length: {length}</label>
+              </div>
+
+
+              <div className="flex items-center gap-x-1">
+                <input type="checkbox" defaultChecked={numberAllowed} id="numberinput" onChange={() => {setNumberAllowed((prev) => !prev); }} />
+                <label>Number</label>
+              </div>
+
+
+              <div className="flex items-center gap-x-1">
+                <input type="checkbox" defaultChecked={numberAllowed} id="numberinput" onChange={() => {setNumberAllowed((prev) => !prev); }} />
+                <label>Character</label>
+              </div>
+          </div>
 
     </div>
   );
