@@ -11,13 +11,10 @@ function App() {
 
   // Moved outside of passwordGenerator
   const copyPasswordToClipboard = useCallback(() => {
-    if (passwordRef.current) {
-      passwordRef.current.select();
-      document.execCommand('copy');
-      alert('Password copied to clipboard!');
-    }
+    passwordRef.current?.select();
+    passwordRef.current?.setSelectionRange(0, length)
   }, [password]);
-
+ 
   const passwordGenerator = useCallback(() => {
     let pass = "";
     let str = "ABCDEFGHIJKLMNOPQUSTUVWXYZabcdefghijklmnopqrstuvwxyz";
